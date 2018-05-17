@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Opret Medlem</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/index">Regnbuen</a>
+            </div>
+            
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+
+
+                        <div class="form-group">
+                            <label style="margin-left: 10px; font-size: 18px;"><a href="/opretmedlem" style="color: #00FF7F;">+ Opret Medlem</a></label>
+                        </div>
+                        <div class="form-group">
+                            <label style="margin-left: 10px; font-size: 18px;"><a href="/opretskole" style="color: #00FF7F;">+ Opret Skole</a></label>
+                        </div>
+                        <div class="form-group">
+                            <label style="color: white; margin-left: 10px; font-size: 15px;">Søg efter barn: </label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group"> 
+                            <div class="col-sm-offset-1  col-sm-10">
+                                <button type="submit" class="btn btn-default" style="width: 100%; border-radius: 0;">Søg</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2  col-sm-10">
+                            <a href="#" style="color: white; text-decoration: underline;">Avanceret Søg</a>
+                        
+                            </div>
+                        </div>
+
+
+                    <li>
+                        <a href="list.html">Klasser:</a>
+                    </li>
+                    <li>
+                        <a href="list.html">3 Klasse</a>
+                    </li>
+                    <li>
+                        <a href="list.html">4 Klasse</a>
+                    </li>
+                    <li>
+                        <a href="list.html">5 Klasse</a>
+                    </li>
+                    <li>
+                        <a href="list.html">6 Klasse</a>
+                    </li>
+                    <li>
+                        <a href="list.html">7 Klasse</a>
+                    </li>
+                    <li>
+                        <a href="list.html">8 Klasse</a>
+                    </li>
+                    <li>
+                        <a href="list.html">9 Klasse</a>
+                    </li>
+                    <li>
+                        <a href="list.html">10 Klasse</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Opret Medlem
+                            <small></small>
+                        </h1>
+                    
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                    <h3>Barn info</h3>
+                    <p>Felter med rød stjerne (<span style="color: red;"> * </span>) SKAL udfyldes</p>
+
+
+                <!--Formular starter for medlem -->
+
+                    <form class="form-horizontal" th:action="@{/opretmedlem}" method="post">
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Fornavn (<span style="color: red;"> * </span>) :</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" placeholder="Fornavn" th:field="${memberCreate.first_name}" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Efternavn (<span style="color: red;"> * </span>) :</label>
+                            <div class="col-sm-5">          
+                                <input type="text" class="form-control" placeholder="Efternavn" th:field="${memberCreate.last_name}" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Køn: (<span style="color: red;"> * </span>) :</label>
+                            <div class="col-sm-5">          
+
+                                <select class="form-control" th:field="${memberCreate.gender}">
+                                    <option value="Dreng">Dreng</option>
+                                    <option value="Pige">Pige</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                    
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Adresse:</label>
+                            <div class="col-sm-5">          
+                                <input type="text" class="form-control" placeholder="Adresse " th:field="${memberCreate.address}" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Hjemmetelefon:</label>
+                            <div class="col-sm-5">          
+                                <input type="text" class="form-control" placeholder="Hjemmetelefon " th:field="${memberCreate.member_home_phone}" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Skole (<span style="color: red;"> * </span>) :</label>
+                            <div class="col-sm-5">
+
+                                <select class="form-control" th:field="${memberCreate.school_id}">
+                                    <!-- vi bruger getList til at udskrive skolerne i select, fra controlleren-->
+                                    <option th:each="school: ${schoolList}"
+                                            th:value="${school.school_id}"
+                                            th:text="${school.school_name}">
+
+                                    </option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Klassetrin (<span style="color: red;"> * </span>) :</label>
+                            <div class="col-sm-2">          
+                            
+                                <select class="form-control" th:field="${memberCreate.grade_id}">
+                                <!-- vi bruger getList til at udskrive skolerne i select, fra controlleren-->
+                                <option th:each="grade: ${gradeList}"
+                                        th:value="${grade.grade_id}"
+                                        th:text="${grade.grade_name}">
+
+                                </option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Mobilnummer:</label>
+                            <div class="col-sm-5">          
+                                <input type="text" class="form-control" placeholder="Mobilnummer" th:field="${memberCreate.member_phone}"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Læge: (<span style="color: red;"> * </span>) :</label>
+                            <div class="col-sm-5">
+
+                                <select class="form-control" th:field="${memberCreate.doctor_id}">
+                                    <!-- vi bruger getList til at udskrive skolerne i select, fra controlleren-->
+                                    <option th:each="doctor: ${doctorList}"
+                                            th:value="${doctor.doctor_id}"
+                                            th:text="${doctor.doctor_first_name} + ' ' + ${doctor.doctor_last_name}">
+
+                                    </option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Forældre 1 Navn:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control"  placeholder="Navn" th:field="${memberCreate.parent1_name}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Forældre 1 Mobiltelefon:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" placeholder="Nummer" th:field="${memberCreate.parent1_phone}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Forældre 1 Arbejdstelefon:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" placeholder="Nummer" th:field="${memberCreate.parent1_workplace_phone}">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Forældre 2 Navn:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" placeholder="Navn" th:field="${memberCreate.parent2_name}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Forældre 2 Mobiltelefon:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" placeholder="Nummer" th:field="${memberCreate.parent2_phone}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Forældre 2 Arbejdstelefon:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" placeholder="Nummer" th:field="${memberCreate.parent2_workplace_phone}">
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Tilladelse til at køre med i personbiler med sikkerhedssele: </label>
+                            <div class="col-sm-2">          
+                            
+                                <select class="form-control" th:field="${memberCreate.drive_permission}">
+                                    <option value="Nej">Nej</option>
+                                    <option value="Ja">Ja</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Allergi: </label>
+                            <div class="col-sm-2">          
+                            
+                                <select class="form-control" th:field="${memberCreate.has_allergies}">
+                                    <option value="Nej">Nej</option>
+                                    <option value="Ja">Ja</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-5">
+
+                                    <label>Øvrig Kommentar (evt. allergi information):</label>
+                                    <textarea class="form-control" rows="5" th:field="${memberCreate.member_details}"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-5">
+                                <button type="submit" class="btn btn-default" style="background-color: #00FF7F;">Opret</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <hr>
+
+                    <form class="form-horizontal" th:action="@{/opretmedlem}" method="post">
+                        <h3>Læge info</h3>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Læge Fornavn:</label>
+                            <div class="col-sm-5">          
+                                <input type="text" class="form-control" placeholder="Læge Fornavn" th:field="${doctorCreate.doctor_first_name}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Læge Efternavn:</label>
+                            <div class="col-sm-5">          
+                                <input type="text" class="form-control" placeholder="Læge Efternavn" th:field="${doctorCreate.doctor_last_name}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Læge Telefon:</label>
+                            <div class="col-sm-5">          
+                                <input type="text" class="form-control" placeholder="Læge Telefon" th:field="${doctorCreate.doctor_phone}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-5">
+                                <button type="submit" class="btn btn-default" style="background-color: #14ACFE;">Opret Læge</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <hr>
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

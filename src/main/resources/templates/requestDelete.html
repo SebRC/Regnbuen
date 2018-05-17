@@ -1,0 +1,198 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Slette medlem</title>
+
+</head>
+<body>
+
+<h2>Er du sikker på at du gerne vil slette medlemmet?</h2>
+<form action="" th:action="@{/delete/} + ${memberModel.getMember_id()}" method="post">
+    <input type="hidden" th:action="${memberModel.getMember_id()}">
+    <input type="submit" value="YES"/>
+    <a href="/index">NO</a>
+
+</form>
+
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Regnbuen</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index">Regnbuen</a>
+        </div>
+
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+
+                <form action="">
+                    <div class="form-group">
+                        <label style="margin-left: 10px; font-size: 18px;"><a href="/opretmedlem" style="color: #00FF7F;">+ Opret Medlem</a></label>
+                    </div>
+                    <div class="form-group">
+                        <label style="margin-left: 10px; font-size: 18px;"><a href="/opretskole" style="color: #00FF7F;">+ Opret Skole</a></label>
+                    </div>
+                    <div class="form-group">
+                        <label style="color: white; margin-left: 10px; font-size: 15px;">Søg efter barn: </label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-1  col-sm-10">
+                            <button type="submit" class="btn btn-default" style="width: 100%; border-radius: 0;">Søg</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2  col-sm-10">
+                            <a href="#" style="color: white; text-decoration: underline;">Avanceret Søg</a>
+
+                        </div>
+                    </div>
+
+                </form>
+                <li>
+                    <a href="list.html">Klasser:</a>
+                </li>
+                <li>
+                    <a href="list.html">3 Klasse</a>
+                </li>
+                <li>
+                    <a href="list.html">4 Klasse</a>
+                </li>
+                <li>
+                    <a href="list.html">5 Klasse</a>
+                </li>
+                <li>
+                    <a href="list.html">6 Klasse</a>
+                </li>
+                <li>
+                    <a href="list.html">7 Klasse</a>
+                </li>
+                <li>
+                    <a href="list.html">8 Klasse</a>
+                </li>
+                <li>
+                    <a href="list.html">9 Klasse</a>
+                </li>
+                <li>
+                    <a href="list.html">10 Klasse</a>
+                </li>
+
+                <li>
+                    <a href="list.html">Udmeldelse</a>
+                </li>
+
+            </ul>
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Slet medlem
+                        <small></small>
+                    </h1>
+
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <table class="table table-hover">
+                    <h2>Er du sikker på at du gerne vil slette medlemmet?</h2>
+                    <thead>
+                    <tr>
+                        <th>Navn</th>
+                        <th>Indmeldelse</th>
+                        <th>Udmeldelse</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td th:text="${memberModel.getFirst_name()} + ' ' + ${memberModel.getLast_name()}"></td>
+                        <td th:text="${memberModel.getEnrollment_date()}"></td>
+                        <td th:text="${memberModel.getDate_of_resignation()}"></td>
+                    </tr>
+                    </tbody>
+                    </table>
+                    <form action="" th:action="@{/delete/} + ${memberModel.getMember_id()}" method="post">
+                        <input type="hidden" th:action="${memberModel.getMember_id()}">
+
+                        <input type="submit" class="btn btn-default" value="YES"/>
+
+                    </form>
+                    <br>
+                    <form action="/index">
+                        <input type="submit" class="btn btn-default" value="NO" />
+                    </form>
+                </table>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
